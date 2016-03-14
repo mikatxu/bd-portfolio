@@ -18,11 +18,8 @@ function latest_jquery() {
 add_action('init', 'latest_jquery');
 //Setup
 define('BDP_WPP_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
-// // Adding plugin javascript active file
-// wp_enqueue_script('bdp-pp-plugin', BDP_WPP_PLUGIN_PATH.'prettyPhoto/jquery.prettyPhoto.js', array('jquery'));
-// wp_enqueue_script('bdp-custom-pp-plugin', BDP_WPP_PLUGIN_PATH.'prettyPhoto/customprettyPhoto.js', array('jquery'));
-// wp_enqueue_style('prettyPhoto', BDP_WPP_PLUGIN_PATH.'/prettyPhoto/css/prettyPhoto.css');
-// wp_enqueue_script('bjqs-js', BDP_WPP_PLUGIN_PATH.'js/bjqs-1.3.js', array('jquery'));
+
+//Add plugin javascript file
 wp_enqueue_script('bdp-js', BDP_WPP_PLUGIN_PATH.'js/bd-portfolio.js', array('jquery'));
 
 //Include admin
@@ -36,7 +33,16 @@ require_once dirname( __FILE__ ) .'/bd-portfolio-shortcodes.php';
 
 //Enqueue plugin CSS
 wp_enqueue_style( 'bd-portfolio-css', plugins_url( '/css/bd-portfolio.css', __FILE__ ) );
-// wp_enqueue_style( 'bjqs-css', plugins_url( '/css/bjqs.css', __FILE__ ) );
+
+//Strip portfolio page content of unnecessary tags
+add_filter('the_content', 'bdp_strip_tags', 12);
+function bdp_strip_tags ($content)
+{   global $post;
+	$pattern = "#<p>|</p>|<br />#i";
+    $replacement = '';
+    $content = preg_replace($pattern, $replacement, $content);
+    return $content;
+}
 
 //Output all portfolio names + shortcode
 function portfolio_categories_func ( $atts ) {

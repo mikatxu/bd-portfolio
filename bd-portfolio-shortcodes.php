@@ -1,11 +1,11 @@
 <?php
 
 //Open and close portfolio
-function bd_portfolio_start_func ( $atts ) {
+function bd_portfolio_open_func ( $atts ) {
   return '<div id="bd-portfolio-overlay">
   <div class="bd-portfolio-container">
   <div id="slider">
-  <a href="#" class="more_info">+</a>
+  <a href="#" class="more-info">+</a>
   <a href="#" class="close">X</a>
   <a href="#" class="control_next">></a>
   <a href="#" class="control_prev"><</a>
@@ -13,17 +13,15 @@ function bd_portfolio_start_func ( $atts ) {
     <li>SLIDE 1</li>
     <li style="background: #aaa;">SLIDE 2</li>
     <li>SLIDE 3</li>
-    <li style="background: #aaa;">SLIDE 4</li>
-  </ul>
-</div>
-</div>
-</div>';
+    <li style="background: #aaa;">SLIDE 4</li>';
   }
 
-add_shortcode( 'bd-portfolio-start', 'bd_portfolio_start_func' );
+add_shortcode( 'bd-portfolio-open', 'bd_portfolio_open_func' );
 
 function bd_portfolio_close_func ( $atts ) {
   return '</ul>
+  </div>
+  </div>
   </div>';
   }
 
@@ -34,7 +32,14 @@ function bd_portfolio_image( $atts, $content = null ) {
   $xpath = new DOMXPath(@DOMDocument::loadHTML($content));
   $src = $xpath->evaluate("string(//img/@src)");
   $strippedsrc = preg_replace('#-[0-9]{3,4}x[0-9]{3,4}.jpg$#','.jpg',$src);
-  return '<a href="' . $strippedsrc . '"><img src="'. $strippedsrc . '" alt=""/></a>';
+  list($image_width, $image_height) = getimagesize($strippedsrc);
+  if ($image_width > $image_height) {
+    $image_class = 'bdp-landscape';
+  }
+  else {
+    $image_class= 'bdp-portrait';
+  }
+  return '<li><img src="'. $strippedsrc . '" class="bd-portfolio-image '.$image_class.'" alt=""/></li>';
 }
 add_shortcode( 'bd-portfolio-image', 'bd_portfolio_image' );
 
@@ -49,9 +54,7 @@ add_shortcode( 'bd-portfolio-text', 'bd_portfolio_text' );
 
 //Output Vimeo video
 function bd_portfolio_video( $atts, $content = null ) {
-  $xpath = new DOMXPath(@DOMDocument::loadHTML($content));
-  $src = $xpath->evaluate("string(//iframe/@src)");
-  $strippedsrc = preg_replace('#player.vimeo.com/video#','vimeo.com',$src);
-  return '<a href="' . $strippedsrc . '?height=70%" class="prettyPhoto" rel="prettyPhoto[gal]"></a>';
+  $src = preg_replace('#iframe src="https://player.vimeo.com/video/([0-9]{8,12})#','iframe class="bdp-vimeo" src="https://player.vimeo.com/video/$1',$content);
+  return '<li>'.$src.'</li>';
 }
 add_shortcode( 'bd-portfolio-video', 'bd_portfolio_video' );
