@@ -10,7 +10,6 @@ jQuery(document).ready(function ($) {
     slideHeight = $('#slider ul li').height();
     slideCount = $('#slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
-    console.log(slideWidth + 'slidewidth');
   }
 
   var height = Math.floor($(window).height() * 0.8);
@@ -20,12 +19,9 @@ jQuery(document).ready(function ($) {
   $('#slider ul li').height(height).width(width);
   $('#slider').height(height).width(width);
   $("#slider").css('top', top);
+  $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
 
   updateslideWidth();
-
-  // var slideCount = $('#slider ul li').length;
-	// var slideHeight = $('#slider ul li').height();
-	// var sliderUlWidth = slideCount * slideWidth;
 
 	$('#slider').css({ width: slideWidth, height: slideHeight });
 	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
@@ -39,8 +35,11 @@ jQuery(document).ready(function ($) {
             $('#slider ul li:last-child').prependTo('#slider ul');
             $('#slider ul').css('left', '');
         });
-        vimeowrap = $('#vimeowrap');
-        vimeowrap.html( vimeowrap.html() );
+        Froogaloop( jQuery('iframe')[0] ).api('pause');
+        $('iframe').each(function(){
+          this.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*')
+        });
+
     };
 
     function moveRight() {
@@ -50,9 +49,10 @@ jQuery(document).ready(function ($) {
             $('#slider ul li:first-child').appendTo('#slider ul');
             $('#slider ul').css('left', '');
         });
-        vimeowrap = $('#vimeowrap');
-        vimeowrap.html( vimeowrap.html() );
-        console.log(slideWidth + 'in ready func');
+        Froogaloop( jQuery('iframe')[0] ).api('pause');
+        $('iframe').each(function(){
+          this.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*')
+        });
     };
 
 
@@ -86,7 +86,7 @@ jQuery(window).resize(function() {
   var arrondi = (Math.round(marginleft / height)*100)/100;
   var newmarginleft = arrondi * height;
   $("#slider ul li").height(height).width(height);
-  $("#slider ul li").css('line-height', height + 'px');
+  $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
   $("#slider").height(height).width(height);
   $("#slider ul").css('margin-left', newmarginleft);
 });

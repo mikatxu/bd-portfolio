@@ -64,6 +64,21 @@
   margin: 0 auto;
 }
 
+.bdp-text-slide {
+  margin: 0 auto;
+  overflow-y: scroll;
+}
+
+.bdp-text {
+  width:80%;
+  overflow:scroll;
+  color:white;
+  text-align: justify;
+  margin:0 auto;
+  line-height:18px;
+  margin-top:4%;
+}
+
 a.more-info, a.close {
   position: absolute;
   top: 0px;

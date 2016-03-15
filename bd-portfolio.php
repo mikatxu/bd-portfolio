@@ -22,6 +22,9 @@ define('BDP_WPP_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__F
 //Add plugin javascript file
 wp_enqueue_script('bdp-js', BDP_WPP_PLUGIN_PATH.'js/bd-portfolio.js', array('jquery'));
 
+//Add Vimeo frogaloop file
+wp_enqueue_script('froogaloop', BDP_WPP_PLUGIN_PATH.'js/froogaloop.js', array('jquery'));
+
 //Include admin
 include dirname( __FILE__ ) .'/bd-portfolio-admin.php';
 
@@ -37,26 +40,10 @@ wp_enqueue_style( 'bd-portfolio-css', plugins_url( '/css/bd-portfolio.css', __FI
 //Strip portfolio page content of unnecessary tags
 add_filter('the_content', 'bdp_strip_tags', 12);
 function bdp_strip_tags ($content)
-{   global $post;
-	$pattern = "#<p>|</p>|<br />#i";
+{
+   global $post;
+	  $pattern = "#<br />#i";
     $replacement = '';
     $content = preg_replace($pattern, $replacement, $content);
     return $content;
 }
-
-//Output all portfolio names + shortcode
-function portfolio_categories_func ( $atts ) {
-  $all_pf_names = array();
-  query_posts( array( 'post_type' => 'bd_portfolio' ) );
-  if ( have_posts() ) : while ( have_posts() ) : the_post();
-  foreach((get_the_category()) as $category) { $all_pf_names[] = $category->cat_name; }
-  endwhile;
-  endif;
-  wp_reset_query();
-  $unique_pf_names = array_unique($all_pf_names);
-  sort($unique_pf_names);
-  foreach ($unique_pf_names as $pf_name) {
-  echo $pf_name . ' ';
-  }
-}
-add_shortcode( 'portfolio-names', 'portfolio_categories_func' );
