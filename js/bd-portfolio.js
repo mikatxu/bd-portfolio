@@ -1,18 +1,31 @@
 jQuery(document).ready(function ($) {
 
+  var slideWidth = 1;
+  var slideCount = 1;
+  var sliderUlWidth = 1;
+  var slideHeight = 1;
+
+  function updateslideWidth() {
+    slideWidth = $('#slider ul li').width();
+    slideHeight = $('#slider ul li').height();
+    slideCount = $('#slider ul li').length;
+    sliderUlWidth = slideCount * slideWidth;
+    console.log(slideWidth + 'slidewidth');
+  }
+
   var height = Math.floor($(window).height() * 0.8);
   var width = Math.floor($(window).width() * 0.8);
   if (width < height) { height = width; }
   var top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
   $('#slider ul li').height(height).width(width);
   $('#slider').height(height).width(width);
-
   $("#slider").css('top', top);
 
-  var slideCount = $('#slider ul li').length;
-	var slideWidth = $('#slider ul li').width();
-	var slideHeight = $('#slider ul li').height();
-	var sliderUlWidth = slideCount * slideWidth;
+  updateslideWidth();
+
+  // var slideCount = $('#slider ul li').length;
+	// var slideHeight = $('#slider ul li').height();
+	// var sliderUlWidth = slideCount * slideWidth;
 
 	$('#slider').css({ width: slideWidth, height: slideHeight });
 	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
@@ -26,6 +39,8 @@ jQuery(document).ready(function ($) {
             $('#slider ul li:last-child').prependTo('#slider ul');
             $('#slider ul').css('left', '');
         });
+        vimeowrap = $('#vimeowrap');
+        vimeowrap.html( vimeowrap.html() );
     };
 
     function moveRight() {
@@ -35,11 +50,12 @@ jQuery(document).ready(function ($) {
             $('#slider ul li:first-child').appendTo('#slider ul');
             $('#slider ul').css('left', '');
         });
+        vimeowrap = $('#vimeowrap');
+        vimeowrap.html( vimeowrap.html() );
+        console.log(slideWidth + 'in ready func');
     };
 
-    function updateslideWidth() {
-      	var slideWidth = $('#slider ul li').width();
-    }
+
 
     $('a.control_prev').click(function () {
         moveLeft();
@@ -52,9 +68,18 @@ jQuery(document).ready(function ($) {
 });
 
 jQuery(window).resize(function() {
+  var slideWidth = $('#slider ul li').width();
+  console.log(slideWidth + 'slidewidth mod');
   var height = Math.floor($(window).height() * 0.8);
   var width = Math.floor($(window).width() * 0.8);
   if (width < height) { height = width; }
+  function updateslideWidth() {
+    slideWidth = $('#slider ul li').width();
+    slideCount = $('#slider ul li').length;
+    sliderUlWidth = slideCount * slideWidth;
+    console.log(slideWidth + 'slidewidth');
+  }
+  updateslideWidth();
   slideWidth = height;
   var top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
   var marginleft = parseInt($("#slider ul").css("margin-left"), 10);

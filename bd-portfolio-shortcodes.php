@@ -53,8 +53,9 @@ function bd_portfolio_text( $atts, $content = null ) {
 add_shortcode( 'bd-portfolio-text', 'bd_portfolio_text' );
 
 //Output Vimeo video
-function bd_portfolio_video( $atts, $content = null ) {
-  $src = preg_replace('#iframe src="https://player.vimeo.com/video/([0-9]{8,12})#','iframe class="bdp-vimeo" src="https://player.vimeo.com/video/$1',$content);
-  return '<li>'.$src.'</li>';
+function bd_portfolio_vimeo( $atts, $content = null ) {
+  $content_id = bin2hex(openssl_random_pseudo_bytes(4));
+  $src = preg_replace('#<iframe src="https://player.vimeo.com/video/([0-9]{8,12})#','<div id="vimeowrap"><iframe class="bdp-vimeo" src="https://player.vimeo.com/video/$1?api=1&player_id=' . $content_id . '',$content);
+  return '<li>'.$src.'</div></li>';
 }
-add_shortcode( 'bd-portfolio-video', 'bd_portfolio_video' );
+add_shortcode( 'bd-portfolio-vimeo', 'bd_portfolio_vimeo' );
