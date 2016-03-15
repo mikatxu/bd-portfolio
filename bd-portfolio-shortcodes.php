@@ -4,6 +4,7 @@
 function bd_portfolio_open_func ( $atts ) {
   return '<div id="bd-portfolio-overlay">
   <div class="bd-portfolio-container">
+  <div id="overlay-info">TEST</div>
   <div id="slider">
   <a href="#" class="more-info"></a>
   <a href="#" class="close"></a>

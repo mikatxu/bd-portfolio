@@ -29,10 +29,7 @@
   position: absolute;
   margin: 0;
   padding: 0;
-  /*height: 200px;*/
   list-style: none;
-  /*top:200px;
-  left:300px;*/
   display: table-row;
 }
 #slider ul li {
@@ -42,11 +39,8 @@
   float: left;
   margin: 0;
   padding: 0;
-  /*width: 500px;
-  height: 300px;*/
   background: #000;
   text-align: center;
-  /*line-height: 300px;*/
 }
 .bdp-portrait {
   height:100%;
@@ -119,6 +113,12 @@ a.more-info, a.close, a.control_prev, a.control_next  {
 }
 a.more-info {
   background-position: -50px top;
+  z-index:1001;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+     -moz-transition:    -moz-transform 0.5s ease-in-out;
+      -ms-transition:     -ms-transform 0.5s ease-in-out;
+       -o-transition:      -o-transform 0.5s ease-in-out;
+          transition:         transform 0.5s ease-in-out;
 }
 a.control_prev {
   background-position: -100px top;
@@ -129,4 +129,21 @@ a.control_next {
 a.control_prev:hover, a.control_next:hover, a.more-info:hover, a.close:hover {
   opacity: 1;
   -webkit-transition: all 0.2s ease;
+}
+#overlay-info {
+  position:absolute;
+  width:300px;
+  height:300px;
+  background-color: blue;
+  z-index:1000;
+  display:block;
+  visibility: hidden;
+  margin:0 auto;
+}
+.rotate {
+  -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
