@@ -5,10 +5,10 @@ function bd_portfolio_open_func ( $atts ) {
   return '<div id="bd-portfolio-overlay">
   <div class="bd-portfolio-container">
   <div id="slider">
-  <a href="#" class="more-info">+</a>
-  <a href="#" class="close">X</a>
-  <a href="#" class="control_next">></a>
-  <a href="#" class="control_prev"><</a>
+  <a href="#" class="more-info"></a>
+  <a href="#" class="close"></a>
+  <a href="#" class="control_next"></a>
+  <a href="#" class="control_prev"></a>
   <ul> <!--
     <li>SLIDE 1</li>
     <li style="background: #aaa;">SLIDE 2</li>

@@ -19,14 +19,12 @@
   position:relative;
   z-index:2;
 }
-
 #slider {
   position: relative;
   overflow: hidden;
   margin: 0 auto;
   border-radius: 4px;
 }
-
 #slider ul {
   position: absolute;
   margin: 0;
@@ -37,7 +35,6 @@
   left:300px;*/
   display: table-row;
 }
-
 #slider ul li {
   position: relative;
   display: table-cell;
@@ -51,24 +48,20 @@
   text-align: center;
   /*line-height: 300px;*/
 }
-
 .bdp-portrait {
   height:100%;
   width:auto;
   margin: 0 auto;
 }
-
 .bdp-landscape {
   width:100%;
   height:auto;
   margin: 0 auto;
 }
-
 .bdp-text-slide {
   margin: 0 auto;
   overflow-y: scroll;
 }
-
 .bdp-text {
   width:80%;
   overflow:scroll;
@@ -78,14 +71,13 @@
   line-height:18px;
   margin-top:4%;
 }
-
 a.more-info, a.close {
   position: absolute;
-  top: 0px;
+  top: 0;
   z-index: 999;
   display: block;
-  padding: 4% 3%;
-  width: auto;
+  padding: 3% 3%;
+  width: 40px;
   height: auto;
   background: #2a2a2a;
   color: #fff;
@@ -94,14 +86,14 @@ a.more-info, a.close {
   font-size: 18px;
   opacity: 0.8;
   cursor: pointer;
+  box-shadow: 0 0 0 0 !important;
 }
-
 a.control_prev, a.control_next {
   position: absolute;
   bottom: 0;
   z-index: 999;
   display: block;
-  padding: 4% 3%;
+  padding: 3% 3%;
   width: auto;
   height: auto;
   background: #2a2a2a;
@@ -111,27 +103,30 @@ a.control_prev, a.control_next {
   font-size: 18px;
   opacity: 0.8;
   cursor: pointer;
+  box-shadow: 0 0 0 0 !important;
 }
-
-a.control_prev:hover, a.control_next:hover {
-  opacity: 1;
-  -webkit-transition: all 0.2s ease;
-}
-
-a.control_prev {
-  border-radius: 0 2px 2px 0;
-}
-
 a.control_next {
   right: 0;
-  border-radius: 2px 0 0 2px;
 }
-
-a.more-info {
-  border-radius: 0 2px 2px 0;
-}
-
 a.close {
   right: 0;
-  border-radius: 2px 0 0 2px;
+}
+a.more-info, a.close, a.control_prev, a.control_next  {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background: url("../img/bdp-nav-sprite.png") no-repeat;
+}
+a.more-info {
+  background-position: -50px top;
+}
+a.control_prev {
+  background-position: -100px top;
+}
+a.control_next {
+  background-position: -150px top;
+}
+a.control_prev:hover, a.control_next:hover, a.more-info:hover, a.close:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
 }
