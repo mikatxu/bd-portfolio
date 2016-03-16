@@ -4,7 +4,7 @@ A slider in a WordPress plugin tailored for an architect.
 
 ## Utilisation
 
-Le plugin crée un *custom type* bd-portfolio. Ces pages portfolio se structurent à l'aide de shortcodes. En leur attribuant une catégorie, il est possible d'afficher des liens vers les autres portfolio de même catégorie.
+Le plugin crée un *custom type* bd-portfolio. Ces pages portfolio se structurent à l'aide de shortcodes. En attribuant une catégorie à ces post de type portfolio, il est possible d'afficher des liens vers les autres portfolio de même catégorie.
 
 ### Syntaxe de base
 
