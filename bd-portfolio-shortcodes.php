@@ -23,8 +23,7 @@ function bd_portfolio_content_end_func ( $atts ) {
 add_shortcode( 'bd-portfolio-content-end', 'bd_portfolio_content_end_func' );
 
 function bd_portfolio_close_func ( $atts ) {
-  return '</ul>
-  </div>
+  return '</div>
   </div>
   </div>';
   }
@@ -82,15 +81,22 @@ function bd_portfolio_samecat( $atts ) {
  $current_category = $category[0]->cat_name;
  $current_catID = get_cat_ID( $current_category );
  $current_title = get_the_title();
- $myposts = get_posts( array( 'post_type' => 'bd_portfolio', 'cat' => $current_catID ));
+ $myposts = get_posts( array( 'post_type' => 'bd_portfolio', 'cat' => $current_catID, 'order' => 'ASC' ));
  foreach( $myposts as $post ) :	setup_postdata($post);
  $title = get_the_title();
  if ($title != $current_title) :
- $all_titles[] = get_the_title();
+ $all_titles[] = array('title' => $title, 'link' => get_permalink());
  endif;
  endforeach;
- foreach ($all_titles as $title) :
-   return '<p>' . $title . '</p>';
+ $links_body = array();
+ print_r($all_titles);
+ foreach ($all_titles as $titles) :
+ $links_body[] = '<a href="' . $titles['link'] . '">' . $titles['title'] . '</a>';
  endforeach;
+ print_r($links_body);
+ $init = '<div id="bd-portfolio-links">';
+ $exit = '</div>';
+ $links = implode(' ', $links_body);
+ return $init.$links.$exit;
 }
 add_shortcode( 'bd-portfolio-samecategory', 'bd_portfolio_samecat' );
