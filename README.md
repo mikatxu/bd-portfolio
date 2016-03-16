@@ -1,8 +1,8 @@
 # bd-portfolio
 
-A JQuery custom slider in a WordPress plugin.
+A slider in a WordPress plugin tailored for an architect.
 
-## Usage
+## Utilisation
 
 Le portfolio est structuré à l'aide de shortcodes.
 
