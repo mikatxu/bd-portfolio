@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: BD Portfolio
-Description: Un portfolio custom basé sur Basic JQuery Slider
+Description: A slider in a WordPress plugin tailored for an architect. 
 Version: 1.0
 Author: Kaxu
 License: GPL2
