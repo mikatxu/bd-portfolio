@@ -2,7 +2,7 @@
 /*
 Plugin Name: BD Portfolio
 Description: Un portfolio custom basé sur Basic JQuery Slider
-Version: 0.1
+Version: 1.0
 Author: Kaxu
 License: GPL2
 Text Domain: bd-portfolio
