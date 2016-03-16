@@ -4,7 +4,7 @@ A JQuery custom slider in a WordPress plugin.
 
 ## Usage
 
-Le portfolio est structuré par des shortcodes.
+Le portfolio est structuré à l'aide de shortcodes.
 
 ### Syntaxe de base
 
@@ -53,11 +53,11 @@ Ferme nécessairement le portfolio
 
 **[bdp-text]...[/bdp-text]**
 
-Pour du contenu texte ou HTML.
+Encadre du contenu texte ou HTML.
 
 **[bdp-image]...[/bdp-image]**
 
-Pour une image. Le script calcule s'il s'agit d'une image en format portrait ou paysage afin de l'aligner correctement dans la slide.
+Encadre une image choisie à l'aide du bouton "Ajouter un média". Le script récupère la meilleure définition disponible, et aligne l'image horizontalement ou verticalement en fonction de son orientation.
 
 **[bdp-vimeo]...[/bdp-vimeo]**
 
@@ -68,3 +68,43 @@ Attention à bien mettre entre les balises le lien vers la page de Vimeo où se 
 Attention à bien mettre entre les balises le lien vers la page de Youtube où se trouve la vidéo. Le code d'embed ("<iframe...") ne fonctionnera pas.
 
 ## Un exemple
+```
+[bdp-open]
+[bdp-more-info]
+<h1>Plus d'infos</h1>
+<h6>Ah bah oui alors !</h6>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+[/bdp-more-info]
+[bdp-content]
+[bdp-text]<h1>Vazi tavu</h1>
+<h6>Ah bah oui alors ! Et pourtant <strong>non. </strong></h6>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+[/bdp-text]
+[bdp-image]
+<img class="alignnone size-medium wp-image-71" src="http://localhost:8888/wp-content/uploads/2016/03/XVM589a6056-afab-11e5-993c-18dd6a418a25-805x453-300x168.jpg" alt="XVM589a6056-afab-11e5-993c-18dd6a418a25-805x453" width="300" height="168" />
+[/bdp-image]
+[bdp-image]
+<img class="alignnone size-medium wp-image-72" src="http://localhost:8888/wp-content/uploads/2016/03/les-photos-de-vacances-de-kate-middleton-du-prince-william-et-de-leurs-enfants-george-et-charlotte-de-cambridge_2-207x300.jpg" alt="les-photos-de-vacances-de-kate-middleton-du-prince-william-et-de-leurs-enfants-george-et-charlotte-de-cambridge_2" width="207" height="300" />
+[/bdp-image]
+[bdp-vimeo]
+https://vimeo.com/52214380
+[/bdp-vimeo]
+[bdp-youtube]
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+[/bdp-youtube]
+[bdp-text]<h1>Vazi tavu BIS</h1>
+<h6>Ah bah oui alors ! Et pourtant <strong>non. </strong></h6>
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+[/bdp-text]
+[bdp-content-end]
+[bdp-samecategory]
+[bdp-close]
+```
