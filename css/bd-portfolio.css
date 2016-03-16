@@ -55,13 +55,13 @@
 #bd-portfolio-links {
   position: absolute;
   bottom: 0;
+  left: 50px;
   color: white;
   font-size: 0.7em;
   height: 50px;
   line-height: 50px;
   margin: 0 auto;
   text-align: center;
-  width: 100%;
   z-index: 999;
   pointer-events:all;
 }
@@ -165,7 +165,7 @@ a.control_prev:hover, a.control_next:hover, a.more-info:hover, a.close:hover {
   -webkit-transition: all 0.2s ease;
 }
 .rotate {
-  -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
        -moz-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
          -o-transform: rotate(45deg);
