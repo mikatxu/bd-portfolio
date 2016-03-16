@@ -2,6 +2,9 @@
 
 // Open and close portfolio
 function bd_portfolio_open_func ( $atts ) {
+  $atts = shortcode_atts(array(
+            'close-link' => '/'), $atts);
+  $link_when_closed = $atts['close-link'];
   return '<div id="bd-portfolio-overlay">
   <div class="bd-portfolio-container">';
   }
@@ -10,7 +13,7 @@ add_shortcode( 'bd-portfolio-open', 'bd_portfolio_open_func' );
 function bd_portfolio_content_func ( $atts ) {
   return '<div id="slider">
   <a href="#" class="more-info"></a>
-  <a href="#" class="close"></a>
+  <a href="'.get_site_url().$link_when_closed.'" class="close"></a>
   <a href="#" class="control_next"></a>
   <a href="#" class="control_prev"></a>
   <ul>';

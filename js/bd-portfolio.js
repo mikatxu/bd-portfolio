@@ -79,11 +79,11 @@ jQuery(document).ready(function ($) {
 
 // Info overlay div animation
     function showmoreInfo() {
-      $('div#overlay-info').css('visibility','visible').hide().fadeIn(500);
+      $('div#overlay-info').css('visibility','visible').hide().fadeIn(200);
     };
 
     function hidemoreInfo() {
-      $('div#overlay-info').fadeOut(500);
+      $('div#overlay-info').fadeOut(200);
       $('div#overlay-info').addClass('overlay-info-hidden');
     };
 
