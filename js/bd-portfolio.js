@@ -14,14 +14,15 @@ jQuery(document).ready(function ($) {
 
   var height = Math.floor($(window).height() * 0.8);
   var width = Math.floor($(window).width() * 0.8);
-  var left = ($(window).width() - width) / 2;
-  if (width < height) { height = width; }
+  if (width < height) { height = width; }  
+  var left = ($(window).width() - height) / 2;
   var top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
-  $('#slider ul li').height(height).width(width);
-  $('#overlay-info').height(height).width(width).css('top', top).css('left', left);
+  console.log('width ' + width + ' / height ' + height + ' / top ' + top + ' / left '+ left)
+  $('#slider ul li').height(height).width(height);
+  $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
   $('#slider').height(height).width(width);
   $("#slider").css('top', top);
-  $("#slider ul li.bdp-non-text").css('line-height', height + 'px');
+  $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
 
   updateslideWidth();
 
@@ -59,7 +60,10 @@ jQuery(document).ready(function ($) {
     function showmoreInfo() {
       $('div#overlay-info').css('visibility','visible').hide().fadeIn(500);
     };
-
+    function hidemoreInfo() {
+      $('div#overlay-info').fadeOut(500).hide().css('visibility','hidden');
+      $('div#overlay-info').addClass('overlay-info-hidden');
+    };
 
     $('a.control_prev').click(function () {
         moveLeft();
@@ -70,13 +74,15 @@ jQuery(document).ready(function ($) {
     });
 
     $('a.more-info').click(function() {
-      showmoreInfo();
-      $('a.more-info').addClass('rotate');
-    });
-
-    $('a.rotate').click(function() {
-      $('a.more-info').removeClass('rotate');
-      $('div#overlay-info').fadeOut(500).css('visibility','hidden').hide();
+      if ($('div#overlay-info').hasClass('overlay-info-hidden')) {
+        showmoreInfo();
+        $('div#overlay-info').removeClass('overlay-info-hidden').addClass('overlay-info-visible');
+        $('a.more-info').addClass('rotate');
+      }
+      else {
+        hidemoreInfo();
+        $('.rotate').removeClass('rotate');
+      }
     });
 
 });
@@ -90,7 +96,6 @@ jQuery(window).resize(function() {
     slideWidth = $('#slider ul li').width();
     slideCount = $('#slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
-    console.log(slideWidth + 'slidewidth');
   };
   updateslideWidth();
   slideWidth = height;
@@ -98,9 +103,9 @@ jQuery(window).resize(function() {
   marginleft = parseInt($("#slider ul").css("margin-left"), 10);
   arrondi = (Math.round(marginleft / height)*100)/100;
   newmarginleft = arrondi * height;
-  left = ($(window).width() - width) / 2;
+  left = ($(window).width() - height) / 2;
   $("#slider ul li").height(height).width(height);
-  $('#overlay-info').height(height).width(width).css('top', top).css('left', left);
+  $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
   $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
   $("#slider").height(height).width(height);
   $("#slider ul").css('margin-left', newmarginleft);
