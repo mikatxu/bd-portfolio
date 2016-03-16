@@ -21,20 +21,20 @@
   position:relative;
   z-index:2;
 }
-#slider {
+#bdp-slider {
   position: relative;
   overflow: hidden;
   margin: 0 auto;
   border-radius: 4px;
 }
-#slider ul {
+#bdp-slider ul {
   position: absolute;
   margin: 0;
   padding: 0;
   list-style: none;
   display: table-row;
 }
-#slider ul li {
+#bdp-slider ul li {
   position: relative;
   display: table-cell;
   vertical-align: middle;
@@ -64,6 +64,10 @@
   text-align: center;
   z-index: 999;
   pointer-events:all;
+}
+a.title-active {
+  color:white;
+  text-decoration:none;
 }
 
 /* Portfolio content styling */

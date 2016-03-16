@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: BD Portfolio
-Description: A slider in a WordPress plugin tailored for an architect. 
+Description: A slider in a WordPress plugin tailored for an architect.
 Version: 1.0
 Author: Kaxu
 License: GPL2

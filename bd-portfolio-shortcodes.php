@@ -11,7 +11,7 @@ function bd_portfolio_open_func ( $atts ) {
 add_shortcode( 'bdp-open', 'bd_portfolio_open_func' );
 
 function bd_portfolio_content_func ( $atts ) {
-  $sliderdiv = '<div id="slider">';
+  $sliderdiv = '<div id="bdp-slider">';
   if ($show_more_info != true) { $ami = '<a href="#" class="more-info"></a>'; }
   $sliderdiv2 = '<a href="'.get_site_url().$link_when_closed.'" class="close"></a>
   <a href="#" class="control_next"></a>
@@ -93,17 +93,21 @@ function bd_portfolio_samecat( $atts ) {
  $myposts = get_posts( array( 'post_type' => 'bd_portfolio', 'cat' => $current_catID, 'order' => 'ASC' ));
  foreach( $myposts as $post ) :	setup_postdata($post);
  $title = get_the_title();
- if ($title != $current_title) :
- $all_titles[] = array('title' => $title, 'link' => get_permalink());
- endif;
+ if ($title == $current_title) {
+   $title_active = 'title-active';
+ }
+   else {
+      $title_active = 'title-inactive';
+    }
+ $all_titles[] = array('title' => $title, 'link' => get_permalink(), 'active' => $title_active);
  endforeach;
  $links_body = array();
  foreach ($all_titles as $titles) :
- $links_body[] = '<a href="' . $titles['link'] . '">' . $titles['title'] . '</a>';
+ $links_body[] = '<a href="' . $titles['link'] . '" class="'.$titles['active'].'">' . $titles['title'] . '</a>';
  endforeach;
  $init = '<div id="bd-portfolio-links">';
  $exit = '</div>';
- $links = implode(' ', $links_body);
+ $links = implode(' &bull; ', $links_body);
  return $init.$links.$exit;
 }
 add_shortcode( 'bdp-samecategory', 'bd_portfolio_samecat' );

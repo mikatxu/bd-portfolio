@@ -11,9 +11,9 @@ jQuery(document).ready(function ($) {
   var slideHeight = 1;
 
   function updateslideWidth() {
-    slideWidth = $('#slider ul li').width();
-    slideHeight = $('#slider ul li').height();
-    slideCount = $('#slider ul li').length;
+    slideWidth = $('#bdp-slider ul li').width();
+    slideHeight = $('#bdp-slider ul li').height();
+    slideCount = $('#bdp-slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
   };
 
@@ -29,26 +29,26 @@ jQuery(document).ready(function ($) {
 
 // Transmission of the values to the slider, the links div, the overlay div
 // Slide width value update
-  $('#slider ul li').height(height).width(height);
+  $('#bdp-slider ul li').height(height).width(height);
   $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
   $("div#bd-portfolio-links").css('width', height - 100);
-  $('#slider').height(height).width(width);
-  $("#slider").css('top', top);
-  $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
+  $('#bdp-slider').height(height).width(width);
+  $("#bdp-slider").css('top', top);
+  $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
 
   updateslideWidth();
 
-	$('#slider').css({ width: slideWidth, height: slideHeight });
-	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
-  $('#slider ul li:last-child').prependTo('#slider ul');
+	$('#bdp-slider').css({ width: slideWidth, height: slideHeight });
+	$('#bdp-slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+  $('#bdp-slider ul li:last-child').prependTo('#bdp-slider ul');
 
 // Slider animation, stopping videos on change
     function moveLeft() {
-        $('#slider ul').animate({
+        $('#bdp-slider ul').animate({
             left: + slideWidth
         }, 500, function () {
-            $('#slider ul li:last-child').prependTo('#slider ul');
-            $('#slider ul').css('left', '');
+            $('#bdp-slider ul li:last-child').prependTo('#bdp-slider ul');
+            $('#bdp-slider ul').css('left', '');
         });
         Froogaloop( jQuery('iframe')[0] ).api('pause');
         $('iframe').each(function(){
@@ -57,11 +57,11 @@ jQuery(document).ready(function ($) {
     };
 
     function moveRight() {
-        $('#slider ul').animate({
+        $('#bdp-slider ul').animate({
             left: - slideWidth
         }, 500, function () {
-            $('#slider ul li:first-child').appendTo('#slider ul');
-            $('#slider ul').css('left', '');
+            $('#bdp-slider ul li:first-child').appendTo('#bdp-slider ul');
+            $('#bdp-slider ul').css('left', '');
         });
         Froogaloop( jQuery('iframe')[0] ).api('pause');
         $('iframe').each(function(){
@@ -111,26 +111,26 @@ else {
 
 jQuery(window).resize(function() {
 
-  slideWidth = $('#slider ul li').width();
+  slideWidth = $('#bdp-slider ul li').width();
   height = Math.floor($(window).height() * 0.8);
   width = Math.floor($(window).width() * 0.8);
   if (width < height) { height = width; }
   function updateslideWidth() {
-    slideWidth = $('#slider ul li').width();
-    slideCount = $('#slider ul li').length;
+    slideWidth = $('#bdp-slider ul li').width();
+    slideCount = $('#bdp-slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
   };
   updateslideWidth();
   slideWidth = height;
   top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
-  marginleft = parseInt($("#slider ul").css("margin-left"), 10);
+  marginleft = parseInt($("#bdp-slider ul").css("margin-left"), 10);
   arrondi = (Math.round(marginleft / height)*100)/100;
   newmarginleft = arrondi * height;
   left = ($(window).width() - height) / 2;
-  $("#slider ul li").height(height).width(height);
+  $("#bdp-slider ul li").height(height).width(height);
   $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
-  $("#slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
+  $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
   $("div#bd-portfolio-links").css('width', (height - 100));
-  $("#slider").height(height).width(height);
-  $("#slider ul").css('margin-left', newmarginleft);
+  $("#bdp-slider").height(height).width(height);
+  $("#bdp-slider ul").css('margin-left', newmarginleft);
 });
