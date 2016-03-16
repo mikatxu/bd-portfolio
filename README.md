@@ -9,17 +9,28 @@ Le portfolio est structuré par des shortcodes.
 ### Syntaxe de base
 
 [bdp-open]
+
 [bdp-more-info]
+
 [/bdp-more-info]
+
 [bdp-content]
+
 ...
+
 [bdp-content-end]
+
 [bdp-samecategory]
+
 [bdp-close]
 
-****[bdp-open]****
+**[bdp-open]**
 
 Ouvre nécessairement le portfolio.
+
+Ce shortcode a une option *close-link* (exemple : [bdp-open close-link="bd-portfolio"]) qui permet de choisir la page où mène la fermeture du portfolio.
+
+Par défaut, la fermeture du portfolio renvoie à la page d'accueil de WordPress.
 
 **[bdp-more-info]...[/bdp-more-info]**
 
@@ -55,3 +66,5 @@ Attention à bien mettre entre les balises le lien vers la page de Vimeo où se 
 **[bdp-youtube]...[/bdp-youtube]**
 
 Attention à bien mettre entre les balises le lien vers la page de Youtube où se trouve la vidéo. Le code d'embed ("<iframe...") ne fonctionnera pas.
+
+## Un exemple
