@@ -28,7 +28,7 @@ ____
 
 **[bdp-open]**
 
-Ouvre nécessairement le portfolio.
+Ouvre nécessairement le code du portfolio.
 
 Ce shortcode a une option *close-link* (exemple : [bdp-open close-link="bd-portfolio"]) qui permet de choisir la page où mène la fermeture du portfolio.
 
@@ -49,7 +49,7 @@ Affiche entre les flèches de navigation du slider des liens vers les autres por
 
 **[bdp-close]**
 
-Ferme nécessairement le portfolio
+Ferme nécessairement le code du portfolio.
 
 ### Les différents types de contenus
 
