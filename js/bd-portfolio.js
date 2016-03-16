@@ -99,6 +99,14 @@ jQuery(document).ready(function ($) {
       }
     });
 
+// Hide more info link if there is no content
+if( $('#overlay-info').length ) {
+  $("a.more-info").css('display','show');
+}
+else {
+    $("a.more-info").hide();
+}
+
 });
 
 jQuery(window).resize(function() {

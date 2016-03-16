@@ -4,7 +4,7 @@ A slider in a WordPress plugin tailored for an architect.
 
 ## Utilisation
 
-Le portfolio est structuré à l'aide de shortcodes.
+Le plugin crée un *custom type* bd-portfolio. Ces pages portfolio se structurent à l'aide de shortcodes. En leur attribuant une catégorie, il est possible d'afficher des liens vers les autres portfolio de même catégorie.
 
 ### Syntaxe de base
 
@@ -34,7 +34,7 @@ Ce shortcode a une option *close-link* (exemple : [bdp-open close-link="bd-portf
 
 Par défaut, la fermeture du portfolio renvoie à la page d'accueil de WordPress.
 
-**[bdp-more-info]...[/bdp-more-info]**
+**[bdp-more-info]...[/bdp-more-info]** (optionnel)
 
 Contient le texte qui apparaît quand on clique en haut à gauche pour avoir plus d'infos.
 
@@ -43,7 +43,7 @@ Contient le texte qui apparaît quand on clique en haut à gauche pour avoir plu
 Bien noter qu'il n'y a pas de [/bdp-content] ! Mais bien [bdp-content-end].
 On entre entre ces deux balises les différents slides à l'aide des shortcodes présentés plus loin.
 
-**[bdp-samecategory]**
+**[bdp-samecategory]** (optionnel)
 
 Affiche entre les flèches de navigation du slider des liens vers les autres portfolio présents dans la même catégorie.
 

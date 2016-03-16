@@ -42,7 +42,7 @@ add_filter('the_content', 'bdp_strip_tags', 12);
 function bdp_strip_tags ($content)
 {
    global $post;
-	  $pattern = "#<br />#i";
+	  $pattern = "#<br />+#i";
     $replacement = '';
     $content = preg_replace($pattern, $replacement, $content);
     return $content;

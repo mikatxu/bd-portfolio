@@ -11,12 +11,13 @@ function bd_portfolio_open_func ( $atts ) {
 add_shortcode( 'bdp-open', 'bd_portfolio_open_func' );
 
 function bd_portfolio_content_func ( $atts ) {
-  return '<div id="slider">
-  <a href="#" class="more-info"></a>
-  <a href="'.get_site_url().$link_when_closed.'" class="close"></a>
+  $sliderdiv = '<div id="slider">';
+  if ($show_more_info != true) { $ami = '<a href="#" class="more-info"></a>'; }
+  $sliderdiv2 = '<a href="'.get_site_url().$link_when_closed.'" class="close"></a>
   <a href="#" class="control_next"></a>
   <a href="#" class="control_prev"></a>
   <ul>';
+  return $sliderdiv.$ami.$sliderdiv2;
   }
 add_shortcode( 'bdp-content', 'bd_portfolio_content_func' );
 
@@ -34,8 +35,13 @@ add_shortcode( 'bdp-close', 'bd_portfolio_close_func' );
 
 // Overlay info
 function bd_portfolio_overlay_info_func ( $atts, $content = null  ) {
+  if (!empty($content)) {
 return '<div id="overlay-info" class="overlay-info-hidden">
 <div class="overlay-info-content">' . $content . '</div></div>';
+  }
+  else {
+    $show_more_info = false;
+  }
 }
 add_shortcode( 'bdp-more-info', 'bd_portfolio_overlay_info_func' );
 // Output portfolio image
@@ -92,11 +98,9 @@ function bd_portfolio_samecat( $atts ) {
  endif;
  endforeach;
  $links_body = array();
- print_r($all_titles);
  foreach ($all_titles as $titles) :
  $links_body[] = '<a href="' . $titles['link'] . '">' . $titles['title'] . '</a>';
  endforeach;
- print_r($links_body);
  $init = '<div id="bd-portfolio-links">';
  $exit = '</div>';
  $links = implode(' ', $links_body);
