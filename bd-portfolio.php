@@ -8,7 +8,9 @@ License: GPL2
 Text Domain: bd-portfolio
 */
 
-//Include PrettyPhoto
+// Add settings page
+
+
 //Adding Latest jQuery from Google
 function latest_jquery() {
   wp_deregister_script('jquery');
@@ -16,6 +18,7 @@ function latest_jquery() {
   wp_enqueue_script('jquery');
 }
 add_action('init', 'latest_jquery');
+
 //Setup
 define('BDP_WPP_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 
@@ -24,9 +27,6 @@ wp_enqueue_script('bdp-js', BDP_WPP_PLUGIN_PATH.'js/bd-portfolio.js', array('jqu
 
 //Add Vimeo frogaloop file
 wp_enqueue_script('froogaloop', BDP_WPP_PLUGIN_PATH.'js/froogaloop.js', array('jquery'));
-
-//Include admin
-include dirname( __FILE__ ) .'/bd-portfolio-admin.php';
 
 //Require portfolio custom type
 require_once dirname( __FILE__ ) .'/bd-portfolio-custom-type.php';

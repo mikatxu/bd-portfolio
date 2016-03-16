@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
 
   var height = Math.floor($(window).height() * 0.8);
   var width = Math.floor($(window).width() * 0.8);
-  if (width < height) { height = width; }  
+  if (width < height) { height = width; }
   var left = ($(window).width() - height) / 2;
   var top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
   console.log('width ' + width + ' / height ' + height + ' / top ' + top + ' / left '+ left)
@@ -61,7 +61,7 @@ jQuery(document).ready(function ($) {
       $('div#overlay-info').css('visibility','visible').hide().fadeIn(500);
     };
     function hidemoreInfo() {
-      $('div#overlay-info').fadeOut(500).hide().css('visibility','hidden');
+      $('div#overlay-info').fadeOut(500);
       $('div#overlay-info').addClass('overlay-info-hidden');
     };
 

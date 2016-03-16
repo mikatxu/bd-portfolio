@@ -1,3 +1,5 @@
+/* Portfolio blocks */
+
 #bd-portfolio-overlay {
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
@@ -42,6 +44,19 @@
   background: #111;
   text-align: center;
 }
+#overlay-info {
+  position:absolute;
+  width:300px;
+  height:300px;
+  background-color: #222;
+  z-index:1000;
+  display:block;
+  visibility: hidden;
+  margin:0 auto;
+}
+
+/* Portfolio content styling */
+
 .bdp-portrait {
   height:100%;
   width:auto;
@@ -65,16 +80,26 @@
   line-height:18px;
   margin-top:4%;
 }
+.overlay-info-content {
+  width:80%;
+  overflow:scroll;
+  color:white;
+  text-align: justify;
+  margin:0 auto;
+  line-height:18px;
+  margin-top:4%;
+}
+
+/* Portfolio navigation */
+
 a.more-info, a.close {
   position: absolute;
   top: 0;
   z-index: 999;
   display: block;
   padding: 3% 3%;
-  width: 40px;
+  width: auto;
   height: auto;
-  background: #2a2a2a;
-  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
@@ -90,8 +115,6 @@ a.control_prev, a.control_next {
   padding: 3% 3%;
   width: auto;
   height: auto;
-  background: #2a2a2a;
-  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
@@ -129,16 +152,6 @@ a.control_next {
 a.control_prev:hover, a.control_next:hover, a.more-info:hover, a.close:hover {
   opacity: 1;
   -webkit-transition: all 0.2s ease;
-}
-#overlay-info {
-  position:absolute;
-  width:300px;
-  height:300px;
-  background-color: #222;
-  z-index:1000;
-  display:block;
-  visibility: hidden;
-  margin:0 auto;
 }
 .rotate {
   -webkit-transform: rotate(45deg);
