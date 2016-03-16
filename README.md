@@ -24,6 +24,8 @@ Le portfolio est structuré à l'aide de shortcodes.
 
 [bdp-close]
 
+____
+
 **[bdp-open]**
 
 Ouvre nécessairement le portfolio.
