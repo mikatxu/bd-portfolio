@@ -1,7 +1,14 @@
+
+
 // the ready and resize sections have basically the same elements
 // make sure you modify both
 
-jQuery(document).ready(function ($) {
+(function($) {
+
+	$(document).ready(documentReadyFunction);
+    $(window).resize(windowResizeFunction);
+
+  function documentReadyFunction() {
 
 // Initialize values used for calculating the slider width
 
@@ -9,6 +16,12 @@ jQuery(document).ready(function ($) {
   var slideCount = 1;
   var sliderUlWidth = 1;
   var slideHeight = 1;
+  var bdp_height = 1;
+  var bdp_width = 1;
+  var bdp_left = 1;
+  var bdp_top = 1;
+  var full_height = 1;
+
 
   function updateslideWidth() {
     slideWidth = $('#bdp-slider ul li').width();
@@ -18,15 +31,14 @@ jQuery(document).ready(function ($) {
   };
 
 // Height and width calculation according to the window
-  var bdp_height = Math.floor($(window).height() * 0.8);
-  var bdp_width = Math.floor($(window).width() * 0.8);
+  bdp_height = Math.floor($(window).height() * 0.8);
+  bdp_width = Math.floor($(window).width() * 0.8);
 // Bad value name, height used as default for overlay square size
   if (bdp_width < bdp_height) { bdp_height = bdp_width; }
 
 // Left and top margin calculation
-  var bdp_left = ($(window).width() - bdp_height) / 2;
-  var bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
-
+  bdp_left = ($(window).width() - bdp_height) / 2;
+  bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
 // Transmission of the values to the slider, the links div, the overlay div
 // Slide width value update
   $('#bdp-slider ul li').height(bdp_height).width(bdp_height);
@@ -111,25 +123,27 @@ else {
 // Adding class for youtube iframes
 $("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​").addClass("bdp-youtube-iframe");
 
-});
+}
 
-jQuery(window).resize(function() {
+function windowResizeFunction() {
 
-  bdp_height = Math.floor($(window).height() * 0.8);
-  bdp_width = Math.floor($(window).width() * 0.8);
+  bdp_height = Math.floor( $(window).height() * 0.8);
+  bdp_width = Math.floor( $(window).width() * 0.8);
+  full_height = $(window).height();
   if (bdp_width < bdp_height) { bdp_height = bdp_width; }
   function updateslideWidth() {
-    slideWidth = $('#bdp-slider ul li').width();
-    slideCount = $('#bdp-slider ul li').length;
+    slideWidth = ('#bdp-slider ul li').width;
+    slideCount = ('#bdp-slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
   };
   updateslideWidth();
   slideWidth = bdp_height;
-  bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
-  bdp_marginleft = parseInt($("#bdp-slider ul").css("margin-left"), 10);
+  bdp_top = Math.floor(( full_height - bdp_height) / 2);
+  bdp_marginleft = parseInt($('#bdp-slider ul').css('margin-left'), 10);
   bdp_arrondi = (Math.round(bdp_marginleft / bdp_height)*100)/100;
   bdp_newmarginleft = bdp_arrondi * bdp_height;
   bdp_left = ($(window).width() - bdp_height) / 2;
+
   $("#bdp-slider ul li").height(bdp_height).width(bdp_height);
   $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
   $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', bdp_height + 'px');
@@ -137,4 +151,6 @@ jQuery(window).resize(function() {
   $("#bdp-slider").height(bdp_height + 50).width(bdp_height);
   $("#bdp-slider ul").css('margin-left', bdp_newmarginleft);
   $("#bdp-slider ul li.bdp-video-slide").css('line-height', bdp_height + 25 + 'px');
-});
+}
+
+  })(jQuery);
