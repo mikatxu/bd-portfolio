@@ -48,11 +48,11 @@ function bd_portfolio_init() {
 
 // Custom permalink
 
-add_action('init', 'bdp_add_rewrite_rules');
-
-function bdp_add_rewrite_rules()
-
-{
+// add_action('init', 'bdp_add_rewrite_rules');
+//
+// function bdp_add_rewrite_rules()
+//
+// {
 // Register custom rewrite rules
 // global $wp_rewrite;
 // $wp_rewrite->add_rewrite_tag('%category%', '([^/]+)', 'bd_portfolio=');
