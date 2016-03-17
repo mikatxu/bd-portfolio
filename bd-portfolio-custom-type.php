@@ -33,14 +33,14 @@ function bd_portfolio_init() {
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => '%category%', 'with-front' => false ),
+		'rewrite'            => array( 'slug' => 'bd_portfolio', 'with-front' => false ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
 		'menu_position'      => null,
     'taxonomies' 				 => array('category'),
-		'supports'           => array( 'title', 'editor', 'thumbnail' ),
-		'rewrite' 					 => false
+		'supports'           => array( 'title', 'editor'),
+		'rewrite' 					 => true
 	);
 
 	register_post_type( 'bd_portfolio', $args );

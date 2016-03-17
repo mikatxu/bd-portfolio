@@ -18,30 +18,30 @@ jQuery(document).ready(function ($) {
   };
 
 // Height and width calculation according to the window
-  var height = Math.floor($(window).height() * 0.8);
-  var width = Math.floor($(window).width() * 0.8);
+  var bdp_height = Math.floor($(window).height() * 0.8);
+  var bdp_width = Math.floor($(window).width() * 0.8);
 // Bad value name, height used as default for overlay square size
-  if (width < height) { height = width; }
+  if (bdp_width < bdp_height) { bdp_height = bdp_width; }
 
 // Left and top margin calculation
-  var left = ($(window).width() - height) / 2;
-  var top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
+  var bdp_left = ($(window).width() - bdp_height) / 2;
+  var bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
 
 // Transmission of the values to the slider, the links div, the overlay div
 // Slide width value update
-  $('#bdp-slider ul li').height(height).width(height);
-  $('#bdp-overlay-info').height(height).width(height).css('top', top - 25).css('left', left);
-  $('div#bd-portfolio-links').css('width', height);
-  $("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​").width(height);
-  $('#bdp-slider').css('top', top - 25);
-  $('#bdp-slider ul li.bdp-non-text-slide').css('line-height', height + 'px');
+  $('#bdp-slider ul li').height(bdp_height).width(bdp_height);
+  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
+  $('div#bd-portfolio-links').css('width', bdp_height);
+  $("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​").width(bdp_height);
+  $('#bdp-slider').css('top', bdp_top - 25);
+  $('#bdp-slider ul li.bdp-non-text-slide').css('line-height', bdp_height + 'px');
 
   updateslideWidth();
 
 	$('#bdp-slider').css({ width: slideWidth, height: slideHeight + 50 });
 	$('#bdp-slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
   $('#bdp-slider ul li:last-child').prependTo('#bdp-slider ul');
-  $("#bdp-slider ul li.bdp-video-slide").css('line-height', height + 25 + 'px');
+  $("#bdp-slider ul li.bdp-video-slide").css('line-height', bdp_height + 25 + 'px');
 
 // Slider animation, stopping videos on change
     function moveLeft() {
@@ -115,27 +115,26 @@ $("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​
 
 jQuery(window).resize(function() {
 
-  slideWidth = $('#bdp-slider ul li').width();
-  height = Math.floor($(window).height() * 0.8);
-  width = Math.floor($(window).width() * 0.8);
-  if (width < height) { height = width; }
+  bdp_height = Math.floor($(window).height() * 0.8);
+  bdp_width = Math.floor($(window).width() * 0.8);
+  if (bdp_width < bdp_height) { bdp_height = bdp_width; }
   function updateslideWidth() {
     slideWidth = $('#bdp-slider ul li').width();
     slideCount = $('#bdp-slider ul li').length;
     sliderUlWidth = slideCount * slideWidth;
   };
   updateslideWidth();
-  slideWidth = height;
-  top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
-  marginleft = parseInt($("#bdp-slider ul").css("margin-left"), 10);
-  arrondi = (Math.round(marginleft / height)*100)/100;
-  newmarginleft = arrondi * height;
-  left = ($(window).width() - height) / 2;
-  $("#bdp-slider ul li").height(height).width(height);
-  $('#bdp-overlay-info').height(height).width(height).css('top', top - 25).css('left', left);
-  $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
-  $("div#bd-portfolio-links").css('width', height);
-  $("#bdp-slider").height(height + 50).width(height);
-  $("#bdp-slider ul").css('margin-left', newmarginleft);
-  $("#bdp-slider ul li.bdp-video-slide").css('line-height', height + 25 + 'px');
+  slideWidth = bdp_height;
+  bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
+  bdp_marginleft = parseInt($("#bdp-slider ul").css("margin-left"), 10);
+  bdp_arrondi = (Math.round(bdp_marginleft / bdp_height)*100)/100;
+  bdp_newmarginleft = bdp_arrondi * bdp_height;
+  bdp_left = ($(window).width() - bdp_height) / 2;
+  $("#bdp-slider ul li").height(bdp_height).width(bdp_height);
+  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
+  $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', bdp_height + 'px');
+  $("div#bd-portfolio-links").css('width', bdp_height);
+  $("#bdp-slider").height(bdp_height + 50).width(bdp_height);
+  $("#bdp-slider ul").css('margin-left', bdp_newmarginleft);
+  $("#bdp-slider ul li.bdp-video-slide").css('line-height', bdp_height + 25 + 'px');
 });
