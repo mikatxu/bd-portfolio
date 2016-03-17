@@ -3,7 +3,7 @@
 
 jQuery(document).ready(function ($) {
 
-// Init values used for calculating the slider width
+// Initialize values used for calculating the slider width
 
   var slideWidth = 1;
   var slideCount = 1;
@@ -30,17 +30,18 @@ jQuery(document).ready(function ($) {
 // Transmission of the values to the slider, the links div, the overlay div
 // Slide width value update
   $('#bdp-slider ul li').height(height).width(height);
-  $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
-  $("div#bd-portfolio-links").css('width', height - 100);
-  $('#bdp-slider').height(height).width(width);
-  $("#bdp-slider").css('top', top);
-  $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
+  $('#bdp-overlay-info').height(height).width(height).css('top', top - 25).css('left', left);
+  $('div#bd-portfolio-links').css('width', height);
+  $("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​").width(height);
+  $('#bdp-slider').css('top', top - 25);
+  $('#bdp-slider ul li.bdp-non-text-slide').css('line-height', height + 'px');
 
   updateslideWidth();
 
-	$('#bdp-slider').css({ width: slideWidth, height: slideHeight });
+	$('#bdp-slider').css({ width: slideWidth, height: slideHeight + 50 });
 	$('#bdp-slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
   $('#bdp-slider ul li:last-child').prependTo('#bdp-slider ul');
+  $("#bdp-slider ul li.bdp-video-slide").css('line-height', height + 25 + 'px');
 
 // Slider animation, stopping videos on change
     function moveLeft() {
@@ -79,33 +80,36 @@ jQuery(document).ready(function ($) {
 
 // Info overlay div animation
     function showmoreInfo() {
-      $('div#overlay-info').css('visibility','visible').hide().fadeIn(200);
+      $('div#bdp-overlay-info').css('visibility','visible').hide().fadeIn(200);
     };
 
     function hidemoreInfo() {
-      $('div#overlay-info').fadeOut(200);
-      $('div#overlay-info').addClass('overlay-info-hidden');
+      $('div#bdp-overlay-info').fadeOut(200);
+      $('div#bdp-overlay-info').addClass('bdp-overlay-info-hidden');
     };
 
     $('a.more-info').click(function() {
-      if ($('div#overlay-info').hasClass('overlay-info-hidden')) {
+      if ($('div#bdp-overlay-info').hasClass('bdp-overlay-info-hidden')) {
         showmoreInfo();
-        $('div#overlay-info').removeClass('overlay-info-hidden').addClass('overlay-info-visible');
-        $('a.more-info').addClass('rotate');
+        $('div#bdp-overlay-info').removeClass('bdp-overlay-info-hidden').addClass('overlay-info-visible');
+        $('a.more-info').addClass('bdp-rotate');
       }
       else {
         hidemoreInfo();
-        $('.rotate').removeClass('rotate');
+        $('.bdp-rotate').removeClass('bdp-rotate');
       }
     });
 
 // Hide more info link if there is no content
-if( $('#overlay-info').length ) {
+if( $('#bdp-overlay-info').length ) {
   $("a.more-info").css('display','show');
 }
 else {
     $("a.more-info").hide();
 }
+
+// Adding class for youtube iframes
+$("iframe[src='www.youtube.com']​​​​​​​​​​​​​​​​").addClass("bdp-youtube-iframe");
 
 });
 
@@ -128,9 +132,10 @@ jQuery(window).resize(function() {
   newmarginleft = arrondi * height;
   left = ($(window).width() - height) / 2;
   $("#bdp-slider ul li").height(height).width(height);
-  $('#overlay-info').height(height).width(height).css('top', top).css('left', left);
+  $('#bdp-overlay-info').height(height).width(height).css('top', top - 25).css('left', left);
   $("#bdp-slider ul li.bdp-non-text-slide").css('line-height', height + 'px');
-  $("div#bd-portfolio-links").css('width', (height - 100));
-  $("#bdp-slider").height(height).width(height);
+  $("div#bd-portfolio-links").css('width', height);
+  $("#bdp-slider").height(height + 50).width(height);
   $("#bdp-slider ul").css('margin-left', newmarginleft);
+  $("#bdp-slider ul li.bdp-video-slide").css('line-height', height + 25 + 'px');
 });

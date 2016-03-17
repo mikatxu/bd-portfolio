@@ -44,7 +44,7 @@
   background: #111;
   text-align: center;
 }
-#overlay-info {
+#bdp-overlay-info {
   position:absolute;
   background-color: #222;
   z-index:1000;
@@ -55,7 +55,7 @@
 #bd-portfolio-links {
   position: absolute;
   bottom: 0;
-  left: 50px;
+  left: 0;
   color: white;
   font-size: 0.7em;
   height: 50px;
@@ -68,6 +68,13 @@
 a.title-active {
   color:white;
   text-decoration:none;
+}
+.bdp-links-separation {
+  width:15px;
+  text-align: center;
+  vertical-align: middle;
+  font-size:2em;
+  display:inline-block;
 }
 
 /* Portfolio content styling */
@@ -95,7 +102,7 @@ a.title-active {
   line-height:18px;
   margin-top:4%;
 }
-.overlay-info-content {
+.bdp-overlay-info-content {
   width:80%;
   overflow:scroll;
   color:white;
@@ -103,6 +110,19 @@ a.title-active {
   margin:0 auto;
   line-height:18px;
   margin-top:4%;
+}
+.bdp-youtube-container {
+position: relative;
+width: 100%;
+height: 0;
+padding-bottom: 56.25%;
+}
+.bdp-youtube-iframe {
+  position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }
 
 /* Portfolio navigation */
@@ -121,10 +141,11 @@ a.more-info, a.close {
   opacity: 0.8;
   cursor: pointer;
   box-shadow: 0 0 0 0 !important;
+  outline:none;
 }
 a.control_prev, a.control_next {
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   z-index: 999;
   display: block;
   padding: 3% 3%;
@@ -136,6 +157,7 @@ a.control_prev, a.control_next {
   opacity: 0.8;
   cursor: pointer;
   box-shadow: 0 0 0 0 !important;
+  outline:none;
 }
 a.control_next {
   right: 0;
@@ -168,7 +190,7 @@ a.control_prev:hover, a.control_next:hover, a.more-info:hover, a.close:hover {
   opacity: 1;
   -webkit-transition: all 0.2s ease;
 }
-.rotate {
+.bdp-rotate {
     -webkit-transform: rotate(45deg);
        -moz-transform: rotate(45deg);
         -ms-transform: rotate(45deg);

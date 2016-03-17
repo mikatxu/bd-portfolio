@@ -8,6 +8,8 @@ Le plugin crée un *custom type* bd-portfolio. Ces pages portfolio se structuren
 
 ### Syntaxe de base
 
+** Seul le code des balises et leur contenu doit être présent dans la page.**
+
 [bdp-open]
 
 [bdp-more-info]
@@ -30,7 +32,7 @@ ____
 
 Ouvre nécessairement le code du portfolio.
 
-Ce shortcode a une option *close-link* (exemple : [bdp-open close-link="bd-portfolio"]) qui permet de choisir la page où mène la fermeture du portfolio.
+Ce shortcode a une option *close-link* (exemple : [bdp-open close-link="/bd-portfolio"]) qui permet de choisir la page où mène la fermeture du portfolio.
 
 Par défaut, la fermeture du portfolio renvoie à la page d'accueil de WordPress.
 
