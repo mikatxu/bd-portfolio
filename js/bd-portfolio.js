@@ -1,5 +1,3 @@
-
-
 // the ready and resize sections have basically the same elements
 // make sure you modify both
 
@@ -46,7 +44,7 @@
   $('div#bd-portfolio-links').css('width', bdp_height);
   bdp_yt_height = $('bdp-youtube-container').width();
   $('#bdp-slider').css('top', bdp_top - 25);
-  $('#bdp-slider ul li.bdp-non-text-slide').css('line-height', bdp_height + 'px');
+  $('#bdp-slider ul li.bdp-image-slide').css('line-height', bdp_height + 'px');
 
   updateslideWidth();
 
@@ -173,7 +171,7 @@ function windowResizeFunction() {
 
   $('#bdp-slider ul li').height(bdp_height).width(bdp_height);
   $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
-  $('#bdp-slider ul li.bdp-non-text-slide').css('line-height', bdp_height + 'px');
+  $('#bdp-slider ul li.bdp-image-slide').css('line-height', bdp_height + 'px');
   $('div#bd-portfolio-links').css('width', bdp_height);
   $('#bdp-slider').height(bdp_height + 50).width(bdp_height);
   $('#bdp-slider ul').css('margin-left', bdp_newmarginleft);
