@@ -40,18 +40,18 @@
 // Transmission of the values to the slider, the links div, the overlay div
 // Slide width value update
   $('#bdp-slider ul li').height(bdp_height).width(bdp_height);
-  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
+  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 35).css('left', bdp_left);
   $('div#bd-portfolio-links').css('width', bdp_height);
   bdp_yt_height = $('bdp-youtube-container').width();
-  $('#bdp-slider').css('top', bdp_top - 25);
+  $('#bdp-slider').css('top', bdp_top - 35);
   $('#bdp-slider ul li.bdp-image-slide').css('line-height', bdp_height + 'px');
 
   updateslideWidth();
 
-	$('#bdp-slider').css({ width: slideWidth, height: slideHeight + 50 });
+	$('#bdp-slider').css({ width: slideWidth, height: slideHeight + 70 });
 	$('#bdp-slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
   $('#bdp-slider ul li:last-child').prependTo('#bdp-slider ul');
-  $("#bdp-slider ul li.bdp-video-slide").css('line-height', bdp_height + 25 + 'px');
+  $("#bdp-slider ul li.bdp-video-slide").css('line-height', bdp_height + 35 + 'px');
 
 // Slider animation, stopping videos on change
     function moveLeft() {
@@ -170,12 +170,12 @@ function windowResizeFunction() {
     $('iframe').attr('height', max_video_height);
 
   $('#bdp-slider ul li').height(bdp_height).width(bdp_height);
-  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 25).css('left', bdp_left);
+  $('#bdp-overlay-info').height(bdp_height).width(bdp_height).css('top', bdp_top - 35).css('left', bdp_left);
   $('#bdp-slider ul li.bdp-image-slide').css('line-height', bdp_height + 'px');
   $('div#bd-portfolio-links').css('width', bdp_height);
-  $('#bdp-slider').height(bdp_height + 50).width(bdp_height);
+  $('#bdp-slider').height(bdp_height + 70).width(bdp_height);
   $('#bdp-slider ul').css('margin-left', bdp_newmarginleft);
-  $('#bdp-slider ul li.bdp-video-slide').css('line-height', bdp_height + 25 + 'px');
+  $('#bdp-slider ul li.bdp-video-slide').css('line-height', bdp_height + 35 + 'px');
 }
 
   })(jQuery);

@@ -62,8 +62,8 @@
   left: 0;
   color: white;
   font-size: 0.7em;
-  height: 50px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   margin: 0 auto;
   text-align: center;
   z-index: 999;
@@ -160,7 +160,7 @@ a.more-info, a.close {
 }
 a.control_prev, a.control_next {
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
   z-index: 999;
   display: block;
   padding: 3% 3%;
