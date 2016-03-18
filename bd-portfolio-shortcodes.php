@@ -109,8 +109,9 @@ add_shortcode( 'bdp-text', 'bd_portfolio_text' );
 
 // Output Youtube video
 function bd_portfolio_youtube( $atts, $content = null ) {
-  $src = preg_replace('#youtube.com/embed/(.*)\?feature=oembed#','youtube.com/embed/$1?feature=oembed&version=3&enablejsapi=1',$content);
-  return '<li class="bdp-non-text-slide bdp-video-slide"><div class="bdp-youtube-container">'.$src.'</div></li>';
+  $video_id = preg_replace('#.*youtube.com/embed/(.*)\?feature=oembed.*#','$1',$content);
+  $video_id = preg_replace( "/\r|\n/", "", $video_id );
+  return '<li class="bdp-non-text-slide bdp-video-slide"><div class="bdp-youtube-container"><div class="bdp-youtube-video" data-id="'.$video_id.'"></div></div></li>';
 }
 add_shortcode( 'bdp-youtube', 'bd_portfolio_youtube' );
 
