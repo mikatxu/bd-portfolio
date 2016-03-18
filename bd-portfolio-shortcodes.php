@@ -6,9 +6,10 @@
 function bd_portfolio_open_func ( $atts ) {
   $atts = shortcode_atts(array(
             'close-link' => '/'), $atts);
+  global $link_when_closed;
   $link_when_closed = $atts['close-link'];
   return '<div id="bd-portfolio-overlay">
-  <div class="bd-portfolio-container '.$link_when_closed.'">';
+  <div class="bd-portfolio-container">';
   }
 add_shortcode( 'bdp-open', 'bd_portfolio_open_func' );
 
@@ -16,7 +17,7 @@ add_shortcode( 'bdp-open', 'bd_portfolio_open_func' );
 function bd_portfolio_content_func ( $atts ) {
   $sliderdiv = '<div id="bdp-slider">';
   if ($show_more_info != true) { $ami = '<a href="#" class="more-info"></a>'; }
-  $sliderdiv2 = '<a href="'.$link_when_closed.'" class="close"></a>
+  $sliderdiv2 = '<a href="'.$GLOBALS['link_when_closed'].'" class="close"></a>
   <a href="#" class="control_next"></a>
   <a href="#" class="control_prev"></a>
   <ul>';

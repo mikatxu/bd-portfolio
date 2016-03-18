@@ -40,7 +40,8 @@ function bd_portfolio_init() {
 		'menu_position'      => null,
     'taxonomies' 				 => array('category'),
 		'supports'           => array( 'title', 'editor'),
-		'rewrite' 					 => true
+    'taxonomies' 				 => array('category'),
+		'supports'           => array( 'title', 'editor' )
 	);
 
 	register_post_type( 'bd_portfolio', $args );
