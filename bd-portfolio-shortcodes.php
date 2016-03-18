@@ -95,7 +95,7 @@ function bd_portfolio_image( $atts, $content = null ) {
   else {
     $image_class= 'bdp-portrait';
   }
-  return '<li class="bdp-non-text-slide"><img src="'. $strippedsrc . '" class="bd-portfolio-image '.$image_class.'" alt=""/></li>';
+  return '<li class="bdp-non-text-slide"><a href="'.$strippedsrc.'" target="_blank"><img src="'. $strippedsrc . '" class="bd-portfolio-image '.$image_class.'" alt=""/></a></li>';
 }
 add_shortcode( 'bdp-image', 'bd_portfolio_image' );
 
