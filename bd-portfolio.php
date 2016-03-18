@@ -12,12 +12,12 @@ Text Domain: bd-portfolio
 
 
 //Adding Latest jQuery from Google
-function latest_jquery() {
-  wp_deregister_script('jquery');
-  wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
-  wp_enqueue_script('jquery');
-}
-add_action('init', 'latest_jquery');
+// function latest_jquery() {
+//   wp_deregister_script('jquery');
+//   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
+//   wp_enqueue_script('jquery');
+// }
+// add_action('init', 'latest_jquery');
 
 //Setup
 define('BDP_WPP_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );

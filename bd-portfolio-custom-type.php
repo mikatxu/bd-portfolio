@@ -2,11 +2,7 @@
 
 //Add portfolio custom type
 add_action( 'init', 'bd_portfolio_init' );
-/**
- * Register a book post type.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_post_type
- */
+
 function bd_portfolio_init() {
 	$labels = array(
 		'name'               => _x( 'Portfolio', 'post type general name', 'bd-portfolio' ),
