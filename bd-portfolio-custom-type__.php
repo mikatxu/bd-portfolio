@@ -33,7 +33,7 @@ function bd_portfolio_init() {
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'bd_portfolio', 'with-front' => false ),
+		'rewrite'            => array( 'slug' => 'bd-portfolio' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -45,31 +45,3 @@ function bd_portfolio_init() {
 
 	register_post_type( 'bd_portfolio', $args );
 }
-
-// Custom permalink
-
-// add_action('init', 'bdp_add_rewrite_rules');
-//
-// function bdp_add_rewrite_rules()
-//
-// {
-// Register custom rewrite rules
-// global $wp_rewrite;
-// $wp_rewrite->add_rewrite_tag('%category%', '([^/]+)', 'bd_portfolio=');
-// $wp_rewrite->add_permastruct('bdp', '%category%', false);
-// }
-//
-// add_filter('post_type_link', 'bdp_permalinks', 10, 3);
-//
-// function bdp_permalinks($permalink, $post, $leavename)
-// {
-// $data = 'mon-truc';
-// $post_id = $post->ID;
-// if($post->post_type != 'category' || empty($permalink) || in_array($post->post_status, array('draft', 'pending', 'auto-draft')))
-// return $permalink;
-// $var1 = get_post_meta($post_id, 'category', true);
-// $var1 = sanitize_title($var1);
-// if(!$var1) { $var1 = $no_data; }
-// $permalink = str_replace('%posts_solicitorspeciality%', $var1, $permalink);
-// return $permalink;
-// }
