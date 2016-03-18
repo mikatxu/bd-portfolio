@@ -53,6 +53,7 @@
   background-color: #222;
   z-index:1000;
   display:block;
+  overflow:scroll;
   visibility: hidden;
   margin:0 auto;
 }

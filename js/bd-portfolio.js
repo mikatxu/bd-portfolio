@@ -158,12 +158,12 @@ function windowResizeFunction() {
   };
   updateslideWidth();
   slideWidth = bdp_height;
-  bdp_top = Math.floor(( full_height - bdp_height) / 2);
+	bdp_top = Math.floor(($(window).height() - $(window).height()*0.8) / 2);
   bdp_marginleft = parseInt($('#bdp-slider ul').css('margin-left'), 10);
   bdp_arrondi = (Math.round(bdp_marginleft / bdp_height)*100)/100;
   bdp_newmarginleft = bdp_arrondi * bdp_height;
   bdp_left = ($(window).width() - bdp_height) / 2;
-
+	
   // video iframe fix
     var max_video_height = bdp_height*(9/16);
     if (max_video_height > bdp_height - 120) { max_video_height = bdp_height - 120; }
