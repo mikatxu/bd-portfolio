@@ -45,7 +45,7 @@
   text-align: center;
 }
 #bdp-slider ul li a img {
-  display: table-cell;
+  display: inline-block;
   vertical-align: middle;
 }
 #bdp-overlay-info {
